@@ -23,6 +23,31 @@ namespace HousingEstate
         {
             return ($"Cislo bytu: {NumberOfFlat}\nRozloha bytu: {AreaOfFlat}\nPocet izieb: {CountOfRoom}");
         }
+
+        public void Addhabitant()
+        {
+            Console.Write("Meno: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Priezvisko: ");
+            string surname = Console.ReadLine();
+
+            Console.Write("Vek: ");
+            int age = int.Parse(Console.ReadLine());
+
+            Person person = new Person(name, surname, age);
+
+            PersonsInFlat.Add(person);
+        }
+
+        public void DiscribePeopleInFlat()
+        {
+            foreach(Person person in PersonsInFlat)
+            {
+                Console.WriteLine(person.ToString());
+            }
+        }
+
        
     }
 }
