@@ -22,5 +22,11 @@ namespace HousingEstate
         {
             return ($"{Name} {Surname}\nVEK:{Age}");
         }
+        public static Person NewPeopleInFlat(string name, string surname, int age)
+        {
+            Person person = new Person(name, surname, age);
+
+            return person;
+        }
     }
 }

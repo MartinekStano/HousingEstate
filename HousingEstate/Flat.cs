@@ -9,14 +9,16 @@ namespace HousingEstate
         public int NumberOfFlat { get; set; }
         public double AreaOfFlat { get; set; }
         public int CountOfRoom { get; set; }
-        public List<Person> PersonsInFlat { get; set; }
+        public static List<Person> PersonsInFlat { get; set; }
+        public int Floor { get; set; }
 
-        public Flat(int numberOfFlat, double areaOfFlat, int countOfRoom, List<Person> personsInFlat)
+        public Flat(int numberOfFlat, double areaOfFlat, int countOfRoom, List<Person> personsInFlat,int floor)
         {
             NumberOfFlat = numberOfFlat;
             AreaOfFlat = areaOfFlat;
             CountOfRoom = countOfRoom;
             PersonsInFlat = personsInFlat;
+            Floor = floor;
         }
 
         public override string ToString()
@@ -24,34 +26,27 @@ namespace HousingEstate
             return ($"Cislo bytu: {NumberOfFlat}\nRozloha bytu: {AreaOfFlat}\nPocet izieb: {CountOfRoom}");
         }
 
-        public void Addhabitant()
+        public static void Addhabitant(string name, string surname, int age)
         {
-            Console.Write("Meno: ");
-            string name = Console.ReadLine();
-
-            Console.Write("Priezvisko: ");
-            string surname = Console.ReadLine();
-
-            Console.Write("Vek: ");
-            int age = int.Parse(Console.ReadLine());
-
             Person person = new Person(name, surname, age);
-
             PersonsInFlat.Add(person);
         }
-
-        public void DiscribePeopleInFlat()
+        public static void GetInfoAboutAllHabitants()
         {
             foreach(Person person in PersonsInFlat)
             {
                 Console.WriteLine(person.ToString());
             }
         }
-
-       
     }
 }
             
+            
+
+
+
+
+       
 
  
 
