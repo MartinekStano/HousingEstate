@@ -9,20 +9,20 @@ namespace HousingEstate
         public int NumberOfEntrance { get; set; }
         public BlockOfFlats BlockOfFlats { get; set; }
         public static List<int> Floor = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
-        public static List<Flat> Flats = new List<Flat>();
-        public Entrance(int numberOfEntrance,  BlockOfFlats blockOfFlats, List<Flat> flats)
+        public static List<Flat> Flats;
+        public Entrance(int numberOfEntrance,  BlockOfFlats blockOfFlats)
         {
             NumberOfEntrance = numberOfEntrance;
             BlockOfFlats = blockOfFlats;
-            Flats = flats;
         }
+            
         
         public static void AddNewFlat(int numberOfFlat, double areaOfFlat, int countOfRoom, List<Person> personsInFlat, int floor)
         {
             Flat flat = new Flat(numberOfFlat, areaOfFlat, countOfRoom, personsInFlat,floor);
-
             Flats.Add(flat);
         }
+
         
         public static void GetInfoAboutAllFlats()
         {

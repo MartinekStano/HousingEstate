@@ -80,7 +80,7 @@ namespace HousingEstate
                             Console.Write("Meno: ");
                             name = Console.ReadLine();
 
-                        } while (IsString(name) == true);
+                        } while (IsString(name) == false);
                     }
 
                     Console.Write("Priezvisko: ");
@@ -94,7 +94,7 @@ namespace HousingEstate
                             Console.Write("Priezvisko: ");
                             surname = Console.ReadLine();
 
-                        } while (IsString(surname) == true);
+                        } while (IsString(surname) == false);
                     }
 
                     Console.Write("Vek: ");
@@ -192,6 +192,35 @@ namespace HousingEstate
             int floor = Entrance.ChooseFloor();
 
             Entrance.AddNewFlat(numberOfFlat,areaOfFlat,countOfRoom,people,floor);
+        }
+        public static void AddEntrance()
+        {
+            Console.Write("Cislo vchodu: ");
+            int numberOfEntrance = int.Parse(Console.ReadLine());
+
+            BlockOfFlats block = AddBlockOfFlats();
+
+            BlockOfFlats.AddEntrance(numberOfEntrance, block);
+        }
+
+        
+
+        public static BlockOfFlats AddBlockOfFlats()
+        {
+            Console.Write("Cislo bloku: ");
+            int numberOfBlockOfFlats = int.Parse(Console.ReadLine());
+
+            Console.Write("Ulica: ");
+            string nameStreet = Console.ReadLine();
+
+            BlockOfFlats block = new BlockOfFlats(numberOfBlockOfFlats,nameStreet);
+            HousingEstate.AddNewBlockOfFlats(numberOfBlockOfFlats, nameStreet);
+
+            return block;
+        }
+        public static void AddHousingEstate()
+        {
+            
         }
     }
 }

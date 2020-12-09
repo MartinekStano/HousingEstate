@@ -6,23 +6,27 @@ namespace HousingEstate
 {
     class HousingEstate
     {
-        public List<BlockOfFlats> BlockOfFlats { get; set; }
+        public static List<BlockOfFlats> BlockOfFlats { get; set; }
+        public string Name { get; set; }
+
+        public HousingEstate(string name)
+        {
+            BlockOfFlats = new List<BlockOfFlats>();
+            Name = name;
+        }
+        public static void AddNewBlockOfFlats(int numberOfBlockOfFlats, string nameStreet)
+        {
+            BlockOfFlats blockOfFlats = new BlockOfFlats(numberOfBlockOfFlats, nameStreet);
+            BlockOfFlats.Add(blockOfFlats);
+            MoveInfAboutBlockOfFlats(blockOfFlats);
+        }
+        public static BlockOfFlats MoveInfAboutBlockOfFlats(BlockOfFlats blockOfFlats)
+        {
+            return blockOfFlats;
+        }
         
 
-        public HousingEstate(List<BlockOfFlats> blockOfFlats)
-        {
-            BlockOfFlats = blockOfFlats;
-        }
 
-        public void AddPerson()
-        {
-            Console.Write("Name: ");
-            string name = Console.ReadLine();
-            Console.Write("Surname: ");
-            string surname = Console.ReadLine();
-            Console.Write("Age: ");
-            int age = int.Parse(Console.ReadLine());
-        }
     }
 }
             
